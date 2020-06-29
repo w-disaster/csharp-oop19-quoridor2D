@@ -42,11 +42,15 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Fabri Luca\PairTest.cs" />
         <Compile Include="Tests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Fabri Luca" />
+      <ProjectReference Include="..\csharp-oop19-quoridor2D\csharp-oop19-quoridor2D.csproj">
+        <Project>{66895d68-2ae1-490d-87f7-52353e05f389}</Project>
+        <Name>csharp-oop19-quoridor2D</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
