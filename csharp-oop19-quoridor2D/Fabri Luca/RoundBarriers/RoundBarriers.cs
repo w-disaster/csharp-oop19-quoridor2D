@@ -6,7 +6,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
     public class RoundBarriersImpl : IRoundBarriers
     {
         private IList<IBarrier> barriers;
-
+        
         public RoundBarriersImpl(IList<IBarrier> barriers)
         {
             this.barriers = barriers;

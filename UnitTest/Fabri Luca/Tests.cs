@@ -21,7 +21,7 @@ namespace UnitTest
         public void BarrierTest()
         {
             IBarrier b1 = new BarrierImpl(new Coordinate(1, 2), BarrierOrientation.Horizontal, BarrierPiece.Head);
-            IBarrier b2 = new BarrierImpl(new Coordinate(2, 2), BarrierOrientation.Vertical, BarrierPiece.Head);
+            IBarrier b2 = new BarrierImpl(new Coordinate(1, 2), BarrierOrientation.Vertical, BarrierPiece.Head);
             Assert.False(b1.Equals(b2));
         }
     }
