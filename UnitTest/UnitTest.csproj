@@ -42,8 +42,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Fabri Luca\PairTest.cs" />
-        <Compile Include="Tests.cs" />
+        <Compile Include="Fabri Luca\Tests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

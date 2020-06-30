@@ -38,8 +38,14 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Fabri Luca\IBarrier.cs" />
-        <Compile Include="Fabri Luca\Pair.cs" />
+        <Compile Include="Fabri Luca\Coordinate\Coordinate.cs" />
+        <Compile Include="Fabri Luca\Coordinate\Pair.cs" />
+        <Compile Include="Fabri Luca\RoundBarriers\BarrierImpl.cs" />
+        <Compile Include="Fabri Luca\RoundBarriers\BarrierPiece.cs" />
+        <Compile Include="Fabri Luca\RoundBarriers\IBarrier.cs" />
+        <Compile Include="Fabri Luca\RoundBarriers\IRoundBarriers.cs" />
+        <Compile Include="Fabri Luca\RoundBarriers\BarrierOrientation.cs" />
+        <Compile Include="Fabri Luca\RoundBarriers\RoundBarriersImpl.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
