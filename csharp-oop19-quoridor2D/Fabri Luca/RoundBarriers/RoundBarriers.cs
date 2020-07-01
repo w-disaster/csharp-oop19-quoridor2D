@@ -17,7 +17,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
             this.graph = graph;
         }
 
-        public RoundBarriers(int boardDimension) : this(new List<IBarrier>(), new BarriersGraph(boardDimension)){ }
+        public RoundBarriers() : this(new List<IBarrier>(), new BarriersGraph(RoundBarriers.BoardDimension)){ }
 
         public void Add(IBarrier barrier)
         {

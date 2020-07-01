@@ -19,14 +19,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
         /// </summary>
         /// <returns>the edges as a list</returns>
         IList<Pair<X, X>> GetEdges();
-
-        /// <summary>
-        /// Converts barriers to edges to remove
-        /// </summary>
-        /// <param name="barriers"></param>
-        /// <returns>list of the edges to remove</returns>
-        IList<Pair<X, X>> BarriersAsCoordinatesToRemove(IList<IBarrier> barriers);
-
+        
         /// <summary>
         /// Computes BFS and checks if there's a path from node source to line destination
         /// if we remove the edges provided by the parameter.

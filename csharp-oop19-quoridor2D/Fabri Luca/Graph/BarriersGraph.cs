@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
@@ -7,17 +5,18 @@ using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
 
 namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
 {
-    public class Graph : IGraph<Coordinate>
+    public class BarriersGraph : IGraph<Coordinate>
     {
         private IList<Pair<Coordinate, Coordinate>> edges;
 
-        public Graph(IList<Pair<Coordinate, Coordinate>> edges)
+        public BarriersGraph(IList<Pair<Coordinate, Coordinate>> edges)
         {
             this.edges = edges;
         }
 
-        public Graph(int boardDimension)
+        public BarriersGraph(int boardDimension)
         {
+            this.edges = new List<Pair<Coordinate, Coordinate>>();
             IList<Coordinate> coordinates = new List<Coordinate>();
             for (var i = 0; i < boardDimension; i++)
             {
@@ -40,7 +39,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             return this.edges;
         }
 
-        public IList<Pair<Coordinate, Coordinate>> BarriersAsCoordinatesToRemove(IList<IBarrier> barriers)
+        public static IList<Pair<Coordinate, Coordinate>> BarriersAsEdgesToRemove(IList<IBarrier> barriers)
         {
             IList<Pair<Coordinate, Coordinate>> edgesToRemove = new List<Pair<Coordinate, Coordinate>>();
 
@@ -91,10 +90,10 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
         }
         
         private void EdgesFromCoordinates(IList<Coordinate> coordinates) {
-            foreach (Coordinate c in coordinates) {
+            foreach (var c in coordinates) {
                 var x = c.First;
                 var y = c.Second;
-                foreach (Coordinate adj in new List<Coordinate>()
+                foreach (var adj in new List<Coordinate>()
                 {
                     new Coordinate(x - 1, y),
                     new Coordinate(x + 1, y),
