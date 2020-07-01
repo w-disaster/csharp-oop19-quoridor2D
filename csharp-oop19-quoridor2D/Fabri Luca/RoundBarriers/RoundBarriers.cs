@@ -22,7 +22,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
         public void Add(IBarrier barrier)
         {
             this.barriers.Add(barrier);
-            foreach(var edge in this.graph.BarriersAsCoordinatesToRemove(new List<IBarrier>()
+            foreach(var edge in BarriersGraph.BarriersAsEdgesToRemove(new List<IBarrier>()
             {
                 barrier
             }))
