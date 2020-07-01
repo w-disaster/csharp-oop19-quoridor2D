@@ -24,7 +24,7 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             Barriers = new RoundBarriers();
             Player1Position = new Coordinate(3, 4);
             Player2Position = new Coordinate(6, 4);
-            Player1FinishLine = 8;
+            Player1FinishLine = RoundBarriers.BoardDimension;
             Player2FinishLine = 0;
             Player1Barriers = 10;
         }
@@ -36,13 +36,13 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
                 this.Player1Barriers--;
                 if (orientation.Equals(BarrierOrientation.Horizontal))
                 {
-                    this.Barriers.add(new Barrier(position, orientation, BarrierPiece.Head));
-                    this.Barriers.add(new Barrier(new Coordinate(position.First + 1, position.Second), orientation, BarrierPiece.Tail));
+                    this.Barriers.Add(new Barrier(position, orientation, BarrierPiece.Head));
+                    this.Barriers.Add(new Barrier(new Coordinate(position.First + 1, position.Second), orientation, BarrierPiece.Tail));
                 }
                 else
                 {
-                    this.Barriers.add(new Barrier(position, orientation, BarrierPiece.Head));
-                    this.Barriers.add(new Barrier(new Coordinate(position.First, position.Second + 1), orientation, BarrierPiece.Tail));
+                    this.Barriers.Add(new Barrier(position, orientation, BarrierPiece.Head));
+                    this.Barriers.Add(new Barrier(new Coordinate(position.First, position.Second + 1), orientation, BarrierPiece.Tail));
                 }
             }
             else
@@ -58,16 +58,16 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
 
         private bool isEmptyPosition(Coordinate position, BarrierOrientation orientation)
         {
-            if (this.Barriers.contains(new Barrier(position, BarrierOrientation.Horizontal, BarrierPiece.Head)))
+            if (this.Barriers.Contains(new Barrier(position, BarrierOrientation.Horizontal, BarrierPiece.Head)))
             {
                 return false;
             }
-            if (this.Barriers.contains(new Barrier(position, BarrierOrientation.Vertical, BarrierPiece.Head)))
+            if (this.Barriers.Contains(new Barrier(position, BarrierOrientation.Vertical, BarrierPiece.Head)))
             {
                 Console.WriteLine("Not empty!!");
                 return false;
             }
-            if (this.Barriers.contains(new Barrier(position, BarrierOrientation.Horizontal, BarrierPiece.Tail)))
+            if (this.Barriers.Contains(new Barrier(position, BarrierOrientation.Horizontal, BarrierPiece.Tail)))
             {
                 if (orientation.Equals(BarrierOrientation.Horizontal))
                 {
@@ -76,13 +76,13 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
                 }
                 else
                 {
-                    if (!this.checkEmptyNextPosition(position, orientation))
+                    if (!this.CheckEmptyNextPosition(position, orientation))
                     {
                         return false;
                     }
                 }
             }
-            if (this.Barriers.contains(new Barrier(position, BarrierOrientation.Vertical, BarrierPiece.Tail)))
+            if (this.Barriers.Contains(new Barrier(position, BarrierOrientation.Vertical, BarrierPiece.Tail)))
             {
                 if (orientation.Equals(BarrierOrientation.Vertical))
                 {
@@ -91,22 +91,22 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
                 }
                 else
                 {
-                    if (!this.checkEmptyNextPosition(position, orientation))
+                    if (!this.CheckEmptyNextPosition(position, orientation))
                     {
                         return false;
                     }
                 }
             }
-            if (!this.checkEmptyNextPosition(position, orientation))
+            if (!this.CheckEmptyNextPosition(position, orientation))
             {
                 return false;
             }
             return true;
         }
 
-        private bool checkEmptyNextPosition(Coordinate position, BarrierOrientation orientation)
+        private bool CheckEmptyNextPosition(Coordinate position, BarrierOrientation orientation)
         {
-            if (this.Barriers.contains(new Barrier(new Coordinate(position.First + 1, position.Second), BarrierOrientation.Horizontal, BarrierPiece.Head)))
+            if (this.Barriers.Contains(new Barrier(new Coordinate(position.First + 1, position.Second), BarrierOrientation.Horizontal, BarrierPiece.Head)))
             {
                 if (orientation.Equals(BarrierOrientation.Horizontal))
                 {
@@ -114,7 +114,7 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
                     return false;
                 }
             }
-            if (this.Barriers.contains(new Barrier(new Coordinate(position.First, position.Second + 1), BarrierOrientation.Vertical, BarrierPiece.Head)))
+            if (this.Barriers.Contains(new Barrier(new Coordinate(position.First, position.Second + 1), BarrierOrientation.Vertical, BarrierPiece.Head)))
             {
                 if (orientation.Equals(BarrierOrientation.Vertical))
                 {
@@ -133,12 +133,12 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
         private bool CheckEdge(Coordinate position)
         {
             //8 = Board dimension
-            if (position.First == 8)
+            if (position.First == RoundBarriers.BoardDimension)
             {
                 Console.WriteLine("Can't place on the edge!!");
                 return false;
             }
-            if (position.Second == 8)
+            if (position.Second == RoundBarriers.BoardDimension)
             {
                 Console.WriteLine("Can't place on the edge!!");
                 return false;
@@ -155,9 +155,9 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             if (orientation.Equals(BarrierOrientation.Horizontal))
             {
                 var playerBarrier = new List<IBarrier> { barrierPosition, barrierH };
-                if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsEdgesToRemove(playerBarrier, this.Player1Position, this.Player1FinishLine)))
+                if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsCoordinatesToRemove(playerBarrier), this.Player1Position, this.Player1FinishLine))
                 {
-                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsEdgesToRemove(playerBarrier, this.Player2Position, this.Player2FinishLine)))
+                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsCoordinatesToRemove(playerBarrier), this.Player2Position, this.Player2FinishLine))
                     {
                         return true;
                     }
@@ -167,9 +167,9 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             else
             {
                 var playerBarrier = new List<IBarrier> { barrierPosition, barrierV };
-                if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsEdgesToRemove(playerBarrier, this.Player1Position, this.Player1FinishLine)))
+                if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsCoordinatesToRemove(playerBarrier), this.Player1Position, this.Player1FinishLine))
                 {
-                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsEdgesToRemove(playerBarrier, this.Player2Position, this.Player2FinishLine)))
+                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsCoordinatesToRemove(playerBarrier), this.Player2Position, this.Player2FinishLine))
                     {
                         return true;
                     }
