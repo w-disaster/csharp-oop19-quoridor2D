@@ -1,5 +1,6 @@
 ﻿using System;
 using csharp_oop19_quoridor2D.Fabri_Luca;
+using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
 using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
 
 namespace csharp_oop19_quoridor2D.CastellaniThomas

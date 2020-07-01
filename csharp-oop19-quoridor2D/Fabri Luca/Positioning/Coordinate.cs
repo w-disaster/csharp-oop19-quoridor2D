@@ -1,4 +1,4 @@
-namespace csharp_oop19_quoridor2D.Fabri_Luca
+namespace csharp_oop19_quoridor2D.Fabri_Luca.Positioning
 {
     public class Coordinate : Pair<int, int>
     {

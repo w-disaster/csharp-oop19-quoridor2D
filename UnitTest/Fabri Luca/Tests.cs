@@ -1,8 +1,7 @@
-﻿using System;
-using csharp_oop19_quoridor2D;
-using csharp_oop19_quoridor2D.Fabri_Luca;
-using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
-using NUnit.Framework;
+﻿﻿using System;
+ using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
+ using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
+ using NUnit.Framework;
 
 namespace UnitTest
 {
@@ -20,8 +19,8 @@ namespace UnitTest
         [Test]
         public void BarrierTest()
         {
-            IBarrier b1 = new BarrierImpl(new Coordinate(1, 2), BarrierOrientation.Horizontal, BarrierPiece.Head);
-            IBarrier b2 = new BarrierImpl(new Coordinate(1, 2), BarrierOrientation.Vertical, BarrierPiece.Head);
+            IBarrier b1 = new Barrier(new Coordinate(1, 2), BarrierOrientation.Horizontal, BarrierPiece.Head);
+            IBarrier b2 = new Barrier(new Coordinate(1, 2), BarrierOrientation.Vertical, BarrierPiece.Head);
             Assert.False(b1.Equals(b2));
         }
     }
