@@ -4,28 +4,13 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
 {
     public class Node : INode
     {
-        private Coordinate _coordinate;
-        private Colour _colour;
+        public Coordinate Coordinate { get; }
+        public Colour Colour { get; set; }
 
         public Node(Coordinate coordinate, Colour colour)
         {
-            _coordinate = coordinate;
-            _colour = colour;
-        }
-
-        public Coordinate GetCoordinate()
-        {
-            return this._coordinate;
-        }
-
-        public Colour GetColour()
-        {
-            return this._colour;
-        }
-
-        public void SetColour(Colour colour)
-        {
-            this._colour = colour;
+            Coordinate = coordinate;
+            Colour = colour;
         }
     }
 }

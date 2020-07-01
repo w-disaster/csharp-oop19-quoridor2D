@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,9 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
         public Graph(int boardDimension)
         {
             IList<Coordinate> coordinates = new List<Coordinate>();
-            for (int i = 0; i < boardDimension; i++)
+            for (var i = 0; i < boardDimension; i++)
             {
-                for (int k = 0; k < boardDimension; k++)
+                for (var k = 0; k < boardDimension; k++)
                 {
                     coordinates.Add(new Coordinate(k, i));
                 }
@@ -29,8 +30,8 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
         }
         private void EdgesFromCoordinates(IList<Coordinate> coordinates) {
             foreach (Coordinate c in coordinates) {
-                int x = c.First;
-                int y = c.Second;
+                var x = c.First;
+                var y = c.Second;
                 foreach (Coordinate adj in new List<Coordinate>()
                     {
                         new Coordinate(x - 1, y),
@@ -60,10 +61,10 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
         {
             IList<Pair<Coordinate, Coordinate>> edgesToRemove = new List<Pair<Coordinate, Coordinate>>();
 
-            foreach(Barrier b in barriers)
+            foreach(var b in barriers)
             {
-                int x = b.Coordinate.First;
-                int y = b.Coordinate.Second;
+                var x = b.Coordinate.First;
+                var y = b.Coordinate.Second;
 
                 if (b.Orientation.Equals(BarrierOrientation.Horizontal)) {
                     edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x, y), new Coordinate(x, y + 1)));
@@ -73,7 +74,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
                     edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x + 1, y), new Coordinate(x, y)));
                 }
             }
-
+            
             return edgesToRemove;
         }
 
@@ -84,17 +85,42 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
                 .ToList();
         }
         
-        private IList<Node> AdjNodes(IList<Pair<Node, Node>> edgesOfNodes, Node node)
+        private IList<INode> AdjNodes(IList<Pair<INode, INode>> edgesOfNodes, INode node)
         {
-            return edgesOfNodes.Where(p => p.First.GetCoordinate().Equals(node.GetCoordinate()) &&
-                                           p.Second.GetColour().Equals(Colour.White))
+            return edgesOfNodes.Where(p => p.First.Coordinate.Equals(node.Coordinate) &&
+                                           p.Second.Colour.Equals(Colour.White))
                 .Select(p => p.Second)
                 .ToList();
         }
 
-        public bool ContainsPath(IList<Pair<Coordinate, Coordinate>> coordinatesToRemove, Coordinate source, int destination)
+        public bool ContainsPath(IList<Pair<Coordinate, Coordinate>> edgesToRemove, Coordinate source, int destination)
         {
-            throw new System.NotImplementedException();
+            IList<INode> list = new List<INode>();
+
+            IList<Pair<INode, INode>> edgesOfNodes = EdgesOfNodes(this.edges
+                .Where(e => !edgesToRemove.Contains(e))
+                .ToList());
+            
+            INode s = new Node(source, Colour.Gray);
+            list.Add(s);
+            
+            //computing BFS
+            while (list.Count > 0)
+            {
+                INode u = list[0];
+                list.RemoveAt(0);
+                foreach (var v in AdjNodes(edgesOfNodes, u))
+                {
+                    if (v.Coordinate.Second.Equals(destination))
+                    {
+                        return true;
+                    }
+                    v.Colour = Colour.Gray;
+                }
+                u.Colour = Colour.Black;
+            }
+
+            return false;
         }
     }
 }

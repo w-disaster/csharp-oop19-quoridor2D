@@ -4,22 +4,18 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Positioning
 {
     public class Pair<X, Y>
     {
-        private readonly X _first; 
-        private readonly Y _second;
-
+        public X First { get; }
+        public Y Second { get; }
+        
         public Pair(X first, Y second)
         {
-            this._first = first;
-            this._second = second;
+            First = first;
+            Second = second;
         }
-
-        public X First => _first;
-
-        public Y Second => _second;
 
         protected bool Equals(Pair<X, Y> other)
         {
-            return EqualityComparer<X>.Default.Equals(_first, other._first) && EqualityComparer<Y>.Default.Equals(_second, other._second);
+            return EqualityComparer<X>.Default.Equals(First, other.First) && EqualityComparer<Y>.Default.Equals(Second, other.Second);
         }
 
         public override bool Equals(object obj)
@@ -34,7 +30,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Positioning
         {
             unchecked
             {
-                return (EqualityComparer<X>.Default.GetHashCode(_first) * 397) ^ EqualityComparer<Y>.Default.GetHashCode(_second);
+                return (EqualityComparer<X>.Default.GetHashCode(First) * 397) ^ EqualityComparer<Y>.Default.GetHashCode(Second);
             }
         }
     }

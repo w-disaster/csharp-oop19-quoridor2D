@@ -5,6 +5,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
 {
     public class RoundBarriers : IRoundBarriers
     {
+        public static readonly int BoardDimension = 9;
         private IList<IBarrier> barriers;
         
         public RoundBarriers(IList<IBarrier> barriers)
