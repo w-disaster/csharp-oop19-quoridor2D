@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using csharp_oop19_quoridor2D.Fabri_Luca;
+using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
 
 namespace csharp_oop19_quoridor2D.CastellaniThomas
 {
@@ -10,9 +11,9 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
         IRoundBarriers Barriers;
         Coordinate Player1Position;
         Coordinate Player2Position;
-        Integer Player1FinishLine;
-        Integer Player2FinishLine;
-        Integer Player1Barriers;
+        int Player1FinishLine;
+        int Player2FinishLine;
+        int Player1Barriers;
 
         public BarrierPlacer()
         {
@@ -29,9 +30,9 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             if (this.CheckPlacement(position, orientation))
             {
                 this.Player1Barriers--;
-                if (orientation.equals(BarrierOrientation.HORIZONTAL))
+                if (orientation.Equals(BarrierOrientation.Horizontal))
                 {
-                    this.Barriers.add(new Barrier(position, orientation, BarrierPiece.HEAD));
+                    this.Barriers.add(new Barrier(position, orientation, BarrierPiece.Head));
                     this.Barriers.add(new Barrier(new Coordinate(position.getX() + 1, position.getY()), orientation, BarrierPiece.TAIL));
                 }
                 else
@@ -172,6 +173,11 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             }
             */
             return true;
+        }
+
+        public void PlaceBarrier(Coordinate position, BarrierOrientation orientation)
+        {
+            throw new NotImplementedException();
         }
     }
 }

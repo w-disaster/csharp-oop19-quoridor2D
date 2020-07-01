@@ -1,8 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-oop19-quoridor2D", "csharp-oop19-quoridor2D\csharp-oop19-quoridor2D.csproj", "{66895D68-2AE1-490D-87F7-52353E05F389}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{73C0F6ED-BC00-44F7-ABC4-FA8D35F538F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTest", "NUnitTest\NUnitTest.csproj", "{E225B5E8-926B-4C26-8BD2-42CEE6A130C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +17,15 @@ Global
 		{66895D68-2AE1-490D-87F7-52353E05F389}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66895D68-2AE1-490D-87F7-52353E05F389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66895D68-2AE1-490D-87F7-52353E05F389}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73C0F6ED-BC00-44F7-ABC4-FA8D35F538F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73C0F6ED-BC00-44F7-ABC4-FA8D35F538F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73C0F6ED-BC00-44F7-ABC4-FA8D35F538F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73C0F6ED-BC00-44F7-ABC4-FA8D35F538F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E225B5E8-926B-4C26-8BD2-42CEE6A130C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E225B5E8-926B-4C26-8BD2-42CEE6A130C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E225B5E8-926B-4C26-8BD2-42CEE6A130C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E225B5E8-926B-4C26-8BD2-42CEE6A130C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0806AD6F-CE3B-4FAE-A08B-9423B4AF60E3}
 	EndGlobalSection
 EndGlobal
