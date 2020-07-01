@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
 using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
 
@@ -14,12 +15,12 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             this.edges = edges;
         }
 
-        public Graph(int BoardDimension)
+        public Graph(int boardDimension)
         {
             IList<Coordinate> coordinates = new List<Coordinate>();
-            for (int i = 0; i < BoardDimension; i++)
+            for (int i = 0; i < boardDimension; i++)
             {
-                for (int k = 0; k < BoardDimension; k++)
+                for (int k = 0; k < boardDimension; k++)
                 {
                     coordinates.Add(new Coordinate(k, i));
                 }
@@ -75,8 +76,21 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
 
             return edgesToRemove;
         }
+
+        private static IList<Pair<INode, INode>> EdgesOfNodes(IList<Pair<Coordinate, Coordinate>> edges)
+        {
+            return edges.Select(e => new Pair<INode, INode>(new Node(e.First, Colour.White),
+                    new Node(e.Second, Colour.White)))
+                .ToList();
+        }
         
-        
+        private IList<Node> AdjNodes(IList<Pair<Node, Node>> edgesOfNodes, Node node)
+        {
+            return edgesOfNodes.Where(p => p.First.GetCoordinate().Equals(node.GetCoordinate()) &&
+                                           p.Second.GetColour().Equals(Colour.White))
+                .Select(p => p.Second)
+                .ToList();
+        }
 
         public bool ContainsPath(IList<Pair<Coordinate, Coordinate>> coordinatesToRemove, Coordinate source, int destination)
         {
