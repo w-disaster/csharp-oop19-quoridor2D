@@ -41,15 +41,21 @@ namespace UnitTest
         public void GraphTest()
         {
             IList<IBarrier> barriers = new List<IBarrier>();
-            
-            for(int i = 0; i < 2; i++){
+            /*I add all horizontals barriers from column 0 to BoardDimension - 2 at line BoardDimension/2
+            NB: it doesn't matter if it is a Head one or a Tail one */
+            for(int i = 0; i < RoundBarriers.BoardDimension - 1; i++){
                 barriers.Add(new Barrier(new Coordinate(i, RoundBarriers.BoardDimension / 2), 
                     BarrierOrientation.Horizontal, BarrierPiece.Head));
             }
-            
+            //There's a path
             Assert.True(this.rb.GetBarriersAsGraph()
                 .ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(barriers), new Coordinate(0, 0), RoundBarriers.BoardDimension - 1));
-            
+            //I add at the final column the last horizontal barrier
+            barriers.Add(new Barrier(new Coordinate(RoundBarriers.BoardDimension - 1, RoundBarriers.BoardDimension / 2), 
+                BarrierOrientation.Horizontal, BarrierPiece.Head));
+            //Now there shouldn't be a path
+            Assert.False(this.rb.GetBarriersAsGraph()
+                .ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(barriers), new Coordinate(0, 0), RoundBarriers.BoardDimension - 1));
         }
     }
 }

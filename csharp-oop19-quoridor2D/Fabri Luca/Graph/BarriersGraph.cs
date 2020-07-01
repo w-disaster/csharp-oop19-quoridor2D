@@ -82,6 +82,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
                         return true;
                     }
                     v.Colour = Colour.Gray;
+                    list.Add(v);
                 }
                 u.Colour = Colour.Black;
             }
