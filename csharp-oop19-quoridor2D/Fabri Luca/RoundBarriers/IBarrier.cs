@@ -8,11 +8,12 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
         {
             get;
         }
+        
         BarrierOrientation Orientation
         {
             get;
         }
-
+        
         BarrierPiece Piece
         {
             get;

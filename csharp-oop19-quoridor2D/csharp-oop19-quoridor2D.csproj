@@ -41,12 +41,12 @@
   <ItemGroup>
     <Compile Include="CastellaniThomas\BarrierPlacer.cs" />
     <Compile Include="CastellaniThomas\IBarrierPlacer.cs" />
+    <Compile Include="Fabri Luca\Graph\BarriersGraph.cs" />
     <Compile Include="Fabri Luca\Graph\Colour.cs" />
     <Compile Include="Fabri Luca\Graph\INode.cs" />
     <Compile Include="Fabri Luca\Graph\Node.cs" />
     <Compile Include="Fabri Luca\Positioning\Coordinate.cs" />
     <Compile Include="Fabri Luca\Positioning\Pair.cs" />
-    <Compile Include="Fabri Luca\Graph\Graph.cs" />
     <Compile Include="Fabri Luca\Graph\IGraph.cs" />
     <Compile Include="Fabri Luca\RoundBarriers\Barrier.cs" />
     <Compile Include="Fabri Luca\RoundBarriers\BarrierPiece.cs" />

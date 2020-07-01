@@ -28,24 +28,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             }
             EdgesFromCoordinates(coordinates);
         }
-        private void EdgesFromCoordinates(IList<Coordinate> coordinates) {
-            foreach (Coordinate c in coordinates) {
-                var x = c.First;
-                var y = c.Second;
-                foreach (Coordinate adj in new List<Coordinate>()
-                    {
-                        new Coordinate(x - 1, y),
-                        new Coordinate(x + 1, y),
-                        new Coordinate(x , y - 1),
-                        new Coordinate(x, y + 1),
 
-                    })
-                {
-                    this.edges.Add(new Pair<Coordinate, Coordinate>(c, adj));
-                }
-            }
-        }
-        
         public void Remove(Pair<Coordinate, Coordinate> edge)
         {
             this.edges.Remove(edge);
@@ -77,22 +60,6 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             
             return edgesToRemove;
         }
-
-        private static IList<Pair<INode, INode>> EdgesOfNodes(IList<Pair<Coordinate, Coordinate>> edges)
-        {
-            return edges.Select(e => new Pair<INode, INode>(new Node(e.First, Colour.White),
-                    new Node(e.Second, Colour.White)))
-                .ToList();
-        }
-        
-        private IList<INode> AdjNodes(IList<Pair<INode, INode>> edgesOfNodes, INode node)
-        {
-            return edgesOfNodes.Where(p => p.First.Coordinate.Equals(node.Coordinate) &&
-                                           p.Second.Colour.Equals(Colour.White))
-                .Select(p => p.Second)
-                .ToList();
-        }
-
         public bool ContainsPath(IList<Pair<Coordinate, Coordinate>> edgesToRemove, Coordinate source, int destination)
         {
             IList<INode> list = new List<INode>();
@@ -122,5 +89,39 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
 
             return false;
         }
+        
+        private void EdgesFromCoordinates(IList<Coordinate> coordinates) {
+            foreach (Coordinate c in coordinates) {
+                var x = c.First;
+                var y = c.Second;
+                foreach (Coordinate adj in new List<Coordinate>()
+                {
+                    new Coordinate(x - 1, y),
+                    new Coordinate(x + 1, y),
+                    new Coordinate(x , y - 1),
+                    new Coordinate(x, y + 1),
+
+                })
+                {
+                    this.edges.Add(new Pair<Coordinate, Coordinate>(c, adj));
+                }
+            }
+        }
+        
+        private static IList<Pair<INode, INode>> EdgesOfNodes(IList<Pair<Coordinate, Coordinate>> edges)
+        {
+            return edges.Select(e => new Pair<INode, INode>(new Node(e.First, Colour.White),
+                    new Node(e.Second, Colour.White)))
+                .ToList();
+        }
+        
+        private IList<INode> AdjNodes(IList<Pair<INode, INode>> edgesOfNodes, INode node)
+        {
+            return edgesOfNodes.Where(p => p.First.Coordinate.Equals(node.Coordinate) &&
+                                           p.Second.Colour.Equals(Colour.White))
+                .Select(p => p.Second)
+                .ToList();
+        }
+        
     }
 }
