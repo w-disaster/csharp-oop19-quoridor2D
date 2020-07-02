@@ -2,6 +2,11 @@ using System.Collections.Generic;
 
 namespace csharp_oop19_quoridor2D.Fabri_Luca.Positioning
 {
+    /// <summary>
+    /// Class concern to a pair of two objects.
+    /// </summary>
+    /// <typeparam name="X"></typeparam>
+    /// <typeparam name="Y"></typeparam>
     public class Pair<X, Y>
     {
         public X First { get; }

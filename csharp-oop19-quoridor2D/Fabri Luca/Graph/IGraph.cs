@@ -6,6 +6,10 @@ using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
 
 namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
 {
+    /// <summary>
+    /// Graph Interface
+    /// </summary>
+    /// <typeparam name="X"></typeparam>
     public interface IGraph<X>
     {
         /// <summary>
@@ -21,7 +25,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
         IList<Pair<X, X>> GetEdges();
         
         /// <summary>
-        /// Computes BFS and checks if there's a path from node source to line destination
+        /// Computes Breadth First Search (BFS) and checks if there's a path from node source to line destination
         /// if we remove the edges provided by the parameter.
         /// </summary>
         /// <param name="coordinatesToRemove"></param>

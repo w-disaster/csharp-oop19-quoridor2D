@@ -5,6 +5,9 @@ using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
 
 namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
 {
+    /// <summary>
+    /// The round barriers class.
+    /// </summary>
     public class RoundBarriers : IRoundBarriers
     {
         public static readonly int BoardDimension = 9;

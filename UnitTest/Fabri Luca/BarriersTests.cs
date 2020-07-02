@@ -18,14 +18,17 @@ namespace UnitTest
                 BarrierOrientation.Horizontal, BarrierPiece.Head);
             IBarrier b2 = new Barrier(new Coordinate(1, RoundBarriers.BoardDimension / 2),
                 BarrierOrientation.Horizontal, BarrierPiece.Tail);
+            
             IList<IBarrier> barriers = new List<IBarrier>()
             {
                 b1, b2
             };
+            
             foreach (var barrier in barriers)
             {
                 this.rb.Add(barrier);
             }
+            
             Assert.True(this.rb.Contains(b1));
             Assert.True(this.rb.GetBarriersAsList().Count.Equals(2));
 

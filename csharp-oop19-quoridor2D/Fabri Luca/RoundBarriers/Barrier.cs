@@ -2,6 +2,9 @@ using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
 
 namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
 {
+    /// <summary>
+    /// The BarrierImpl class
+    /// </summary>
     public class Barrier : IBarrier
     {
         public Coordinate Coordinate { get; }

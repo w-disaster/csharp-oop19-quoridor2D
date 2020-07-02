@@ -4,7 +4,10 @@ using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
 using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
 
 namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
-{
+{    
+    /// <summary>
+    /// Bidirectional graph that models barriers as holes of edges.
+    /// </summary>
     public class BarriersGraph : IGraph<Coordinate>
     {
         private IList<Pair<Coordinate, Coordinate>> edges;
@@ -28,6 +31,11 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             EdgesFromCoordinates(coordinates);
         }
         
+        /// <summary>
+        /// Converts barriers to edges to remove
+        /// </summary>
+        /// <param name="barriers"></param>
+        /// <returns>the list of the edges to remove</returns>
         public static IList<Pair<Coordinate, Coordinate>> BarriersAsEdgesToRemove(IList<IBarrier> barriers)
         {
             IList<Pair<Coordinate, Coordinate>> edgesToRemove = new List<Pair<Coordinate, Coordinate>>();
@@ -38,11 +46,15 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
                 var y = b.Coordinate.Second;
 
                 if (b.Orientation.Equals(BarrierOrientation.Horizontal)) {
-                    edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x, y), new Coordinate(x, y + 1)));
-                    edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x, y + 1), new Coordinate(x, y)));
+                    edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x, y), 
+                        new Coordinate(x, y + 1)));
+                    edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x, y + 1), 
+                        new Coordinate(x, y)));
                 } else {
-                    edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x, y), new Coordinate(x + 1, y)));
-                    edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x + 1, y), new Coordinate(x, y)));
+                    edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x, y), 
+                        new Coordinate(x + 1, y)));
+                    edgesToRemove.Add(new Pair<Coordinate, Coordinate>(new Coordinate(x + 1, y), 
+                        new Coordinate(x, y)));
                 }
             }
             
@@ -71,7 +83,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             INode s = new Node(source, Colour.Gray);
             list.Add(s);
             
-            //computing BFS
+            //Computing algorithm: Breadth First Search (BFS)
             while (list.Count > 0)
             {
                 INode u = list[0];
@@ -91,6 +103,10 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             return false;
         }
         
+        /// <summary>
+        /// Private method to build the graph given the nodes, that in this case are the board coordinates.
+        /// </summary>
+        /// <param name="coordinates"></param>
         private void EdgesFromCoordinates(IList<Coordinate> coordinates) {
             foreach (var c in coordinates) {
                 var x = c.First;
@@ -109,6 +125,11 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             }
         }
         
+        /// <summary>
+        /// Edges of two nodes
+        /// </summary>
+        /// <param name="edges"></param>
+        /// <returns>edges of nodes from edges of coordinates</returns>
         private static IList<Pair<INode, INode>> EdgesOfNodes(IList<Pair<Coordinate, Coordinate>> edges)
         {
             return edges.Select(e => new Pair<INode, INode>(new Node(e.First, Colour.White),
@@ -116,6 +137,12 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
                 .ToList();
         }
         
+        /// <summary>
+        /// Adjacent nodes
+        /// </summary>
+        /// <param name="edgesOfNodes"></param>
+        /// <param name="node"></param>
+        /// <returns>adjacent nodes of node</returns>
         private static IList<INode> AdjNodes(IList<Pair<INode, INode>> edgesOfNodes, INode node)
         {
             return edgesOfNodes.Where(p => p.First.Coordinate.Equals(node.Coordinate) &&
