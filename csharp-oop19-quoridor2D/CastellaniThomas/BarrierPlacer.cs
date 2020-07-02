@@ -155,9 +155,9 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             if (orientation.Equals(BarrierOrientation.Horizontal))
             {
                 var playerBarrier = new List<IBarrier> { barrierPosition, barrierH };
-                if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsCoordinatesToRemove(playerBarrier), this.Player1Position, this.Player1FinishLine))
+                if (this.Barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.Player1Position, this.Player1FinishLine))
                 {
-                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsCoordinatesToRemove(playerBarrier), this.Player2Position, this.Player2FinishLine))
+                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.Player2Position, this.Player2FinishLine))
                     {
                         return true;
                     }
@@ -167,9 +167,9 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             else
             {
                 var playerBarrier = new List<IBarrier> { barrierPosition, barrierV };
-                if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsCoordinatesToRemove(playerBarrier), this.Player1Position, this.Player1FinishLine))
+                if (this.Barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.Player1Position, this.Player1FinishLine))
                 {
-                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(this.Barriers.GetBarriersAsGraph().BarriersAsCoordinatesToRemove(playerBarrier), this.Player2Position, this.Player2FinishLine))
+                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.Player2Position, this.Player2FinishLine))
                     {
                         return true;
                     }
