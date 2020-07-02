@@ -43,7 +43,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fabri Luca\Tests.cs" />
+    <Compile Include="CastellaniThomas\BarrierPlacerTest.cs" />
+    <Compile Include="Fabri Luca\BarriersTests.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CastellaniThomas\BarrierPlacer.cs" />
+    <Compile Include="CastellaniThomas\IBarrierPlacer.cs" />
     <Compile Include="Fabri Luca\Graph\BarriersGraph.cs" />
     <Compile Include="Fabri Luca\Graph\Colour.cs" />
     <Compile Include="Fabri Luca\Graph\INode.cs" />

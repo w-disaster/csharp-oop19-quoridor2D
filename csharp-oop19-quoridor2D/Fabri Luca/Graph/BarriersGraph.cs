@@ -27,18 +27,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             }
             EdgesFromCoordinates(coordinates);
         }
-
-        public void Remove(Pair<Coordinate, Coordinate> edge)
-        {
-            this.edges.Remove(edge);
-            this.edges.Remove(new Pair<Coordinate, Coordinate>(edge.Second, edge.First));
-        }
-
-        public IList<Pair<Coordinate, Coordinate>> GetEdges()
-        {
-            return this.edges;
-        }
-
+        
         public static IList<Pair<Coordinate, Coordinate>> BarriersAsEdgesToRemove(IList<IBarrier> barriers)
         {
             IList<Pair<Coordinate, Coordinate>> edgesToRemove = new List<Pair<Coordinate, Coordinate>>();
@@ -59,6 +48,18 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
             
             return edgesToRemove;
         }
+        
+        public void Remove(Pair<Coordinate, Coordinate> edge)
+        {
+            this.edges.Remove(edge);
+            this.edges.Remove(new Pair<Coordinate, Coordinate>(edge.Second, edge.First));
+        }
+
+        public IList<Pair<Coordinate, Coordinate>> GetEdges()
+        {
+            return this.edges;
+        }
+        
         public bool ContainsPath(IList<Pair<Coordinate, Coordinate>> edgesToRemove, Coordinate source, int destination)
         {
             IList<INode> list = new List<INode>();
@@ -115,7 +116,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
                 .ToList();
         }
         
-        private IList<INode> AdjNodes(IList<Pair<INode, INode>> edgesOfNodes, INode node)
+        private static IList<INode> AdjNodes(IList<Pair<INode, INode>> edgesOfNodes, INode node)
         {
             return edgesOfNodes.Where(p => p.First.Coordinate.Equals(node.Coordinate) &&
                                            p.Second.Colour.Equals(Colour.White))
