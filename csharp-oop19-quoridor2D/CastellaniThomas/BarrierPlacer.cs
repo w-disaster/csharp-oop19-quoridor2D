@@ -51,7 +51,7 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             }
         }
 
-        private bool CheckPlacement(Coordinate position, BarrierOrientation orientation)
+        public bool CheckPlacement(Coordinate position, BarrierOrientation orientation)
         {
             return this.IsEmptyPosition(position, orientation) && this.EnoughBarriers() && this.CheckEdge(position) && this.NoStall(position, orientation) ? true : false;
         }

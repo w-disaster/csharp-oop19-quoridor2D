@@ -8,5 +8,7 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
     public interface IBarrierPlacer
     {
         void PlaceBarrier(Coordinate position, BarrierOrientation orientation);
+
+        bool CheckPlacement(Coordinate position, BarrierOrientation orientation);
     }
 }
