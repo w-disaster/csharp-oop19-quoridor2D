@@ -1,8 +1,7 @@
 ﻿using System;
-using NUnit.Framework;
 using csharp_oop19_quoridor2D.CastellaniThomas;
 
-namespace UnitTest.CastellaniThomas
+namespace Test.CastellaniThomas
 {
     public class BarrierPlacerTest
     {

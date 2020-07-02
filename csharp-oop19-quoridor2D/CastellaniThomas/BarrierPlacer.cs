@@ -12,37 +12,37 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
     public class BarrierPlacer : IBarrierPlacer
     {
         //I assume that "Player1" is the player that makes the move but i need some of player2 things to do the stall check
-        readonly IRoundBarriers Barriers;
-        readonly Coordinate Player1Position;
-        readonly Coordinate Player2Position;
-        readonly int Player1FinishLine;
-        readonly int Player2FinishLine;
-        int Player1Barriers;
+        readonly IRoundBarriers barriers;
+        readonly Coordinate player1Position;
+        readonly Coordinate player2Position;
+        readonly int player1FinishLine;
+        readonly int player2FinishLine;
+        int player1Barriers;
 
         public BarrierPlacer()
         {
-            Barriers = new RoundBarriers();
-            Player1Position = new Coordinate(3, 4);
-            Player2Position = new Coordinate(6, 4);
-            Player1FinishLine = RoundBarriers.BoardDimension;
-            Player2FinishLine = 0;
-            Player1Barriers = 10;
+            barriers = new RoundBarriers();
+            player1Position = new Coordinate(3, 4);
+            player2Position = new Coordinate(6, 4);
+            player1FinishLine = RoundBarriers.BoardDimension - 1;
+            player2FinishLine = 0;
+            player1Barriers = 10;
         }
 
         public void PlaceBarrier(Coordinate position, BarrierOrientation orientation)
         {
             if (this.CheckPlacement(position, orientation))
             {
-                this.Player1Barriers--;
+                this.player1Barriers--;
                 if (orientation.Equals(BarrierOrientation.Horizontal))
                 {
-                    this.Barriers.Add(new Barrier(position, orientation, BarrierPiece.Head));
-                    this.Barriers.Add(new Barrier(new Coordinate(position.First + 1, position.Second), orientation, BarrierPiece.Tail));
+                    this.barriers.Add(new Barrier(position, orientation, BarrierPiece.Head));
+                    this.barriers.Add(new Barrier(new Coordinate(position.First + 1, position.Second), orientation, BarrierPiece.Tail));
                 }
                 else
                 {
-                    this.Barriers.Add(new Barrier(position, orientation, BarrierPiece.Head));
-                    this.Barriers.Add(new Barrier(new Coordinate(position.First, position.Second + 1), orientation, BarrierPiece.Tail));
+                    this.barriers.Add(new Barrier(position, orientation, BarrierPiece.Head));
+                    this.barriers.Add(new Barrier(new Coordinate(position.First, position.Second + 1), orientation, BarrierPiece.Tail));
                 }
             }
             else
@@ -53,21 +53,21 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
 
         private bool CheckPlacement(Coordinate position, BarrierOrientation orientation)
         {
-            return this.isEmptyPosition(position, orientation) && this.EnoughBarriers() && this.CheckEdge(position) && this.NoStall(position, orientation) ? true : false;
+            return this.IsEmptyPosition(position, orientation) && this.EnoughBarriers() && this.CheckEdge(position) && this.NoStall(position, orientation) ? true : false;
         }
 
-        private bool isEmptyPosition(Coordinate position, BarrierOrientation orientation)
+        private bool IsEmptyPosition(Coordinate position, BarrierOrientation orientation)
         {
-            if (this.Barriers.Contains(new Barrier(position, BarrierOrientation.Horizontal, BarrierPiece.Head)))
+            if (this.barriers.Contains(new Barrier(position, BarrierOrientation.Horizontal, BarrierPiece.Head)))
             {
                 return false;
             }
-            if (this.Barriers.Contains(new Barrier(position, BarrierOrientation.Vertical, BarrierPiece.Head)))
+            if (this.barriers.Contains(new Barrier(position, BarrierOrientation.Vertical, BarrierPiece.Head)))
             {
                 Console.WriteLine("Not empty!!");
                 return false;
             }
-            if (this.Barriers.Contains(new Barrier(position, BarrierOrientation.Horizontal, BarrierPiece.Tail)))
+            if (this.barriers.Contains(new Barrier(position, BarrierOrientation.Horizontal, BarrierPiece.Tail)))
             {
                 if (orientation.Equals(BarrierOrientation.Horizontal))
                 {
@@ -82,7 +82,7 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
                     }
                 }
             }
-            if (this.Barriers.Contains(new Barrier(position, BarrierOrientation.Vertical, BarrierPiece.Tail)))
+            if (this.barriers.Contains(new Barrier(position, BarrierOrientation.Vertical, BarrierPiece.Tail)))
             {
                 if (orientation.Equals(BarrierOrientation.Vertical))
                 {
@@ -106,7 +106,7 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
 
         private bool CheckEmptyNextPosition(Coordinate position, BarrierOrientation orientation)
         {
-            if (this.Barriers.Contains(new Barrier(new Coordinate(position.First + 1, position.Second), BarrierOrientation.Horizontal, BarrierPiece.Head)))
+            if (this.barriers.Contains(new Barrier(new Coordinate(position.First + 1, position.Second), BarrierOrientation.Horizontal, BarrierPiece.Head)))
             {
                 if (orientation.Equals(BarrierOrientation.Horizontal))
                 {
@@ -114,7 +114,7 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
                     return false;
                 }
             }
-            if (this.Barriers.Contains(new Barrier(new Coordinate(position.First, position.Second + 1), BarrierOrientation.Vertical, BarrierPiece.Head)))
+            if (this.barriers.Contains(new Barrier(new Coordinate(position.First, position.Second + 1), BarrierOrientation.Vertical, BarrierPiece.Head)))
             {
                 if (orientation.Equals(BarrierOrientation.Vertical))
                 {
@@ -127,18 +127,18 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
 
         private bool EnoughBarriers()
         {
-            return this.Player1Barriers > 0 ? true : false;
+            return this.player1Barriers > 0 ? true : false;
         }
 
         private bool CheckEdge(Coordinate position)
         {
             //8 = Board dimension
-            if (position.First == RoundBarriers.BoardDimension)
+            if (position.First == RoundBarriers.BoardDimension - 1)
             {
                 Console.WriteLine("Can't place on the edge!!");
                 return false;
             }
-            if (position.Second == RoundBarriers.BoardDimension)
+            if (position.Second == RoundBarriers.BoardDimension - 1)
             {
                 Console.WriteLine("Can't place on the edge!!");
                 return false;
@@ -155,9 +155,9 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             if (orientation.Equals(BarrierOrientation.Horizontal))
             {
                 var playerBarrier = new List<IBarrier> { barrierPosition, barrierH };
-                if (this.Barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.Player1Position, this.Player1FinishLine))
+                if (this.barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.player1Position, this.player1FinishLine))
                 {
-                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.Player2Position, this.Player2FinishLine))
+                    if (this.barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.player2Position, this.player2FinishLine))
                     {
                         return true;
                     }
@@ -167,9 +167,9 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             else
             {
                 var playerBarrier = new List<IBarrier> { barrierPosition, barrierV };
-                if (this.Barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.Player1Position, this.Player1FinishLine))
+                if (this.barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.player1Position, this.player1FinishLine))
                 {
-                    if (this.Barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.Player2Position, this.Player2FinishLine))
+                    if (this.barriers.GetBarriersAsGraph().ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(playerBarrier), this.player2Position, this.player2FinishLine))
                     {
                         return true;
                     }
