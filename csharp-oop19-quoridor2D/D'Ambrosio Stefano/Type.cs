@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano
 {
-    class PowerUp
+    public enum Type
     {
+        PlusOneBarrier, PlusOneMove
     }
 }
