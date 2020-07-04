@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano
 {
-    interface IPowerUp
+    public interface IPowerUp
     {
 
         Type Type
