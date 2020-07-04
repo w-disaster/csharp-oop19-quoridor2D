@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CastellaniThomas\BarrierPlacer.cs" />
     <Compile Include="CastellaniThomas\IBarrierPlacer.cs" />
+    <Compile Include="D%27Ambrosio Stefano\Class1.cs" />
     <Compile Include="Fabri Luca\Graph\BarriersGraph.cs" />
     <Compile Include="Fabri Luca\Graph\Colour.cs" />
     <Compile Include="Fabri Luca\Graph\INode.cs" />
