@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastellaniThomas\BarrierPlacerTest.cs" />
+    <Compile Include="D%27Ambrosio Stefano\PowerUpTest.cs" />
     <Compile Include="Fabri Luca\BarriersTests.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
