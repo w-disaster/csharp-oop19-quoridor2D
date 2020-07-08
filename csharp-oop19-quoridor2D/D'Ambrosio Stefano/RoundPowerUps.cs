@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano
 {
-    class RoundPowerUps
+    public class RoundPowerUps : IRoundPowerUps
     {
         public static readonly int BarrierPowerUpNumber = 3;
         public static readonly int MovePowerUpNumber = 3;
@@ -15,7 +15,7 @@ namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano
 
         public RoundPowerUps()
         {
-            powerUpList = new List<PowerUp>;
+            powerUpList = new List<PowerUp>();
 
 			for (int i = 0; i < BarrierPowerUpNumber; i++)
 			{
@@ -48,11 +48,11 @@ namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano
 			this.powerUpList = powerUpList;
 		}
 
-		public List<PowerUp> getPowerUpsAsList() {
+		public List<PowerUp> GetPowerUpsAsList() {
 				return this.powerUpList;
 			}
 
-		public void remove(PowerUp p)
+		public void Remove(PowerUp p)
 			{
 				this.powerUpList.Remove(p);
 			}

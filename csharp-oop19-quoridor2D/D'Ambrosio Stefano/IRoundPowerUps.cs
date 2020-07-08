@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano
 {
-    interface IRoundPowerUps
+    public interface IRoundPowerUps
     {
         List<PowerUp> GetPowerUpsAsList();
         void Remove(PowerUp p);
