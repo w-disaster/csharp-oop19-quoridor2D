@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CastellaniThomas\BarrierPlacer.cs" />
     <Compile Include="CastellaniThomas\IBarrierPlacer.cs" />
+    <Compile Include="D%27Ambrosio Stefano\Interface1.cs" />
     <Compile Include="D%27Ambrosio Stefano\Type.cs" />
     <Compile Include="D%27Ambrosio Stefano\PowerUp.cs" />
     <Compile Include="D%27Ambrosio Stefano\IPowerUp.cs" />
