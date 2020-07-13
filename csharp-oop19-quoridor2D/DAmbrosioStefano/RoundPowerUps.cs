@@ -20,7 +20,7 @@ namespace csharp_oop19_quoridor2D.DAmbrosioStefano
 			for (int i = 0; i < BarrierPowerUpNumber; i++)
 			{
 				PowerUp p = new PowerUp(Type.PlusOneBarrier);
-				if (this.powerUpList.Any() && this.powerUpList.Contains(p))
+				if (this.powerUpList.Any(x => x.Coordinate.Equals(p.Coordinate)))
 				{
 					i--;
 				}
@@ -32,7 +32,7 @@ namespace csharp_oop19_quoridor2D.DAmbrosioStefano
 			for (int i = 0; i < MovePowerUpNumber; i++)
 			{
 				PowerUp p = new PowerUp(Type.PlusOneMove);
-				if (this.powerUpList.Any() && this.powerUpList.Contains(p))
+				if (this.powerUpList.Any(y => y.Coordinate.Equals(p.Coordinate)))
 				{
 					i--;
 				}

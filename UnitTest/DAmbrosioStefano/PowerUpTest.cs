@@ -41,7 +41,7 @@ namespace UnitTest.DAmbrosioStefano
             // Check if the list contains the right number of PowerUps
             Assert.AreEqual(powerUpList.Count, 6);
             // Check if any powerUp has the same coordinate
-            Assert.IsTrue(powerUpList.GroupBy(x => x.Coordinate).Any(y => y.Count() > 1));
+            Assert.IsFalse(powerUpList.GroupBy(x => x.Coordinate).Any(y => y.Count() > 1));
         }
 
     }

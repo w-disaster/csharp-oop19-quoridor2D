@@ -10,16 +10,15 @@ namespace csharp_oop19_quoridor2D.DAmbrosioStefano
 {
     public class PowerUp : IPowerUp
     {
-        private readonly Random random;
+        private static readonly Random random = new Random();
         public Type Type { get; }
         public Coordinate Coordinate { get; }
 
         public PowerUp(Type type)
         {
-            this.random = new Random();
             this.Type = type;
             this.Coordinate = new Coordinate(2 + random.Next(RoundBarriers.BoardDimension - 4),
-                2 + random.Next(RoundBarriers.BoardDimension - 4));
+            2 + random.Next(RoundBarriers.BoardDimension - 4));
         }
 
     }
