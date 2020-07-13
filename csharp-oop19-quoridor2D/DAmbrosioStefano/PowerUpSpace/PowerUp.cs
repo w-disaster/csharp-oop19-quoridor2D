@@ -1,12 +1,8 @@
 ﻿using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
 using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano
+namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano.PowerUpSpace
 {
     public class PowerUp : IPowerUp
     {

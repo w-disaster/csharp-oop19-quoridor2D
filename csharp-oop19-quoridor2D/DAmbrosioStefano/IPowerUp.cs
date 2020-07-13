@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_oop19_quoridor2D.D_Ambrosio_Stefano
+namespace csharp_oop19_quoridor2D.DAmbrosioStefano
 {
     public interface IPowerUp
     {
