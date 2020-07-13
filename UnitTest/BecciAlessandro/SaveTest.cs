@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using csharp_oop19_quoridor2D.BecciAlessandro;
 using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
 using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
+using NUnit.Framework;
 
 namespace UnitTest1.BecciAlessandro
 {
@@ -15,8 +17,8 @@ namespace UnitTest1.BecciAlessandro
             saver = new SaveBarriers();
             rb = new RoundBarriers();
         }
-
-        public void SaveBarriers()
+        [Test]
+        public void SaveBarriersTest()
         {
             IBarrier b1 = new Barrier(new Coordinate(0, RoundBarriers.BoardDimension / 2),
                 BarrierOrientation.Horizontal, BarrierPiece.Head);
@@ -32,8 +34,8 @@ namespace UnitTest1.BecciAlessandro
             {
                 this.rb.Add(barrier);
             }
-            
-            saver.Save(rb);
+            Console.WriteLine("gang");
+            Assert.IsTrue(saver.Save(rb));
             
         }
     }

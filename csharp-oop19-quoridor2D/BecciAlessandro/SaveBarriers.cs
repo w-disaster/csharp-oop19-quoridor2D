@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,12 +10,23 @@ namespace csharp_oop19_quoridor2D.BecciAlessandro
 {
     public class SaveBarriers
     {
-        public void Save(RoundBarriers barriers)
+
+        private String pathFile;
+        public SaveBarriers()
+        {
+            pathFile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + Path.PathSeparator +
+                                                 ".quoridorcsharp" +
+                                                 Path.PathSeparator + "barriersList";
+        }
+        
+        public Boolean Save(RoundBarriers barriers)
         {
             var barriersList = barriers.GetBarriersAsList();
             var barriersGraph = barriers.GetBarriersAsGraph();
-            File.WriteAllText("barriersList", JsonSerializer.Serialize(barriersList));
-            
+            Console.WriteLine(pathFile);
+            File.WriteAllText(pathFile, JsonSerializer.Serialize(barriersList));
+            Console.WriteLine(pathFile);
+            return true;
         }
     }
 }
