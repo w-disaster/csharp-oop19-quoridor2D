@@ -80,11 +80,11 @@
     <Compile Include="BecciAlessandro\SaveBarriers.cs" />
     <Compile Include="CastellaniThomas\BarrierPlacer.cs" />
     <Compile Include="CastellaniThomas\IBarrierPlacer.cs" />
-    <Compile Include="D%27Ambrosio Stefano\RoundPowerUps.cs" />
-    <Compile Include="D%27Ambrosio Stefano\IRoundPowerUps.cs" />
-    <Compile Include="D%27Ambrosio Stefano\Type.cs" />
-    <Compile Include="D%27Ambrosio Stefano\PowerUp.cs" />
-    <Compile Include="D%27Ambrosio Stefano\IPowerUp.cs" />
+    <Compile Include="DAmbrosioStefano\RoundPowerUps.cs" />
+    <Compile Include="DAmbrosioStefano\IRoundPowerUps.cs" />
+    <Compile Include="DAmbrosioStefano\Type.cs" />
+    <Compile Include="DAmbrosioStefano\PowerUp.cs" />
+    <Compile Include="DAmbrosioStefano\IPowerUp.cs" />
     <Compile Include="Fabri Luca\Graph\BarriersGraph.cs" />
     <Compile Include="Fabri Luca\Graph\Colour.cs" />
     <Compile Include="Fabri Luca\Graph\INode.cs" />

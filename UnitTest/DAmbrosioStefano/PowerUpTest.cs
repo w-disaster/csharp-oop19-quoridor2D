@@ -1,9 +1,9 @@
-﻿using csharp_oop19_quoridor2D.D_Ambrosio_Stefano;
+﻿using csharp_oop19_quoridor2D.DAmbrosioStefano;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UnitTest.D_Ambrosio_Stefano
+namespace UnitTest.DAmbrosioStefano
 {
     class PowerUpTest
     {
