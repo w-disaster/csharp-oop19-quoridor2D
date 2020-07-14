@@ -9,16 +9,18 @@ namespace UnitTest1.BecciAlessandro
 {
     public class SaveTest
     {
-        private SaveBarriers saver;
-        private RoundBarriers rb;
+        private readonly SaveBarriers saver;
+        private readonly RoundBarriers rb;
+        private readonly LoadBarriers loader;
 
         public SaveTest()
         {
             saver = new SaveBarriers();
             rb = new RoundBarriers();
+            loader = new LoadBarriers();
         }
         [Test]
-        public void SaveBarriersTest()
+        public void SaveLoadBarriersTest()
         {
             IBarrier b1 = new Barrier(new Coordinate(0, RoundBarriers.BoardDimension / 2),
                 BarrierOrientation.Horizontal, BarrierPiece.Head);
@@ -34,8 +36,13 @@ namespace UnitTest1.BecciAlessandro
             {
                 this.rb.Add(barrier);
             }
+
             Assert.IsTrue(saver.Save(rb));
-            
+            Assert.IsTrue(loader.Load());
+            Assert.IsTrue(loader.Barriers.Contains(b1));
+            Assert.IsTrue(loader.Barriers.Contains(b2));
         }
+
+        
     }
 }

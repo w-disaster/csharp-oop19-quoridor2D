@@ -11,7 +11,7 @@ namespace csharp_oop19_quoridor2D.BecciAlessandro
     public class LoadBarriers
     {
         private readonly String pathFile;
-        private RoundBarriers rb;
+        public List<IBarrier> Barriers { get; set; }
 
         public LoadBarriers()
         {
@@ -33,17 +33,17 @@ namespace csharp_oop19_quoridor2D.BecciAlessandro
         
         public Boolean Load()
         {
-            var listBarrier = new List<IBarrier>();
+            Barriers = new List<IBarrier>();
             var reader = new StreamReader(pathFile);
             for (var i = 0; i < LinesInSaveFile(pathFile) / SaveBarriers.BarrierComponents ; i++)
             {
-                var coord = JsonSerializer.Deserialize<Coordinate>(reader.ReadLine());
+                var firstCoord = JsonSerializer.Deserialize<int>(reader.ReadLine());
+                var secondCoord = JsonSerializer.Deserialize<int>(reader.ReadLine());
                 var orientation = JsonSerializer.Deserialize<BarrierOrientation>(reader.ReadLine());
                 var piece = JsonSerializer.Deserialize<BarrierPiece>(reader.ReadLine());
-                listBarrier.Add(new Barrier(coord, orientation, piece));
+                Barriers.Add(new Barrier(new Coordinate(firstCoord, secondCoord), orientation, piece));
             }
             reader.Close();
-            Console.WriteLine(listBarrier);
             return true;
         }
     }

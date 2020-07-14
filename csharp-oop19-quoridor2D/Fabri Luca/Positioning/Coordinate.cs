@@ -8,5 +8,6 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.Positioning
         public Coordinate(int x, int y) : base(x, y)
         {
         }
+        
     }
 }

@@ -11,31 +11,30 @@ namespace csharp_oop19_quoridor2D.BecciAlessandro
     public class SaveBarriers
     {
         private readonly String pathFile;
-        public static readonly int BarrierComponents = 3;
+        //The Components of a Barrier
+        public static readonly int BarrierComponents = 4;
         
         public SaveBarriers()
         {
             pathFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "saveBarriers.txt");
         }
         
+        /*
+         * This can be used also for saving the graph.
+         */
         public Boolean Save(RoundBarriers barriers)
         {
             var barriersList = barriers.GetBarriersAsList();
-            var barriersGraph = barriers.GetBarriersAsGraph();
             var writer = new StreamWriter(pathFile);
             foreach(var barrier in barriersList)
             {
-                writer.WriteLine(JsonSerializer.Serialize(barrier.Coordinate));
+                writer.WriteLine(JsonSerializer.Serialize(barrier.Coordinate.First));
+                writer.WriteLine(JsonSerializer.Serialize(barrier.Coordinate.Second));
                 writer.WriteLine(JsonSerializer.Serialize(barrier.Orientation));
                 writer.WriteLine(JsonSerializer.Serialize(barrier.Piece));
             }
             writer.Close();
             return true;
-        }
-
-        public int GetBarrierComponents()
-        {
-            return BarrierComponents;
         }
     }
 }
