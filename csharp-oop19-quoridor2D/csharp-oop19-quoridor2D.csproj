@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BecciAlessandro\LoadBarriers.cs" />
     <Compile Include="BecciAlessandro\SaveBarriers.cs" />
     <Compile Include="CastellaniThomas\BarrierPlacer.cs" />
     <Compile Include="CastellaniThomas\IBarrierPlacer.cs" />

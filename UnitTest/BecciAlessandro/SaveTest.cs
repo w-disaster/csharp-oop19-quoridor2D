@@ -11,7 +11,7 @@ namespace UnitTest1.BecciAlessandro
     {
         private SaveBarriers saver;
         private RoundBarriers rb;
-        
+
         public SaveTest()
         {
             saver = new SaveBarriers();
@@ -29,12 +29,11 @@ namespace UnitTest1.BecciAlessandro
             {
                 b1, b2
             };
-            
+
             foreach (var barrier in barriers)
             {
                 this.rb.Add(barrier);
             }
-            Console.WriteLine("gang");
             Assert.IsTrue(saver.Save(rb));
             
         }

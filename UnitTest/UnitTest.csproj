@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BecciAlessandro\LoadTest.cs" />
     <Compile Include="BecciAlessandro\SaveTest.cs" />
     <Compile Include="CastellaniThomas\BarrierPlacerTest.cs" />
     <Compile Include="DAmbrosioStefano\PowerUpTest.cs" />
