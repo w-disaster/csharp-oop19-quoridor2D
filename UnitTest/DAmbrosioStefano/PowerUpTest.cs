@@ -1,7 +1,6 @@
-﻿using csharp_oop19_quoridor2D.DAmbrosioStefano;
+﻿using System.Linq;
+using csharp_oop19_quoridor2D.DAmbrosioStefano;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace UnitTest.DAmbrosioStefano
 {

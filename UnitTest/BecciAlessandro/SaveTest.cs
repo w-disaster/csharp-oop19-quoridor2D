@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using csharp_oop19_quoridor2D.BecciAlessandro;
 using csharp_oop19_quoridor2D.FabriLuca.Positioning;
