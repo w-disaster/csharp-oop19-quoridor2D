@@ -85,7 +85,6 @@
     <Compile Include="CastellaniThomas\BarrierPlacerTest.cs" />
     <Compile Include="DAmbrosioStefano\PowerUpTest.cs" />
     <Compile Include="FabriLuca\BarriersTests.cs" />
-    <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

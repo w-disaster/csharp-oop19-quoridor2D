@@ -5,7 +5,7 @@ using csharp_oop19_quoridor2D.FabriLuca.Positioning;
 using csharp_oop19_quoridor2D.FabriLuca.RoundBarriers;
 using NUnit.Framework;
 
-namespace UnitTest
+namespace UnitTest.FabriLuca
 {
     [TestFixture]
     public class BarriersTests
