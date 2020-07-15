@@ -1,4 +1,4 @@
-namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
+namespace csharp_oop19_quoridor2D.FabriLuca.RoundBarriers
 {
     /// <summary>
     /// Orientation enum.

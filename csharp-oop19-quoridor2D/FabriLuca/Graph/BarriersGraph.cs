@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
-using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
+using csharp_oop19_quoridor2D.FabriLuca.Positioning;
+using csharp_oop19_quoridor2D.FabriLuca.RoundBarriers;
 
-namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
+namespace csharp_oop19_quoridor2D.FabriLuca.Graph
 {    
     /// <summary>
     /// Bidirectional graph that models barriers as holes of edges.

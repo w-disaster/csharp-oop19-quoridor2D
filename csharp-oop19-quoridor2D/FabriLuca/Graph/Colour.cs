@@ -1,4 +1,4 @@
-namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
+namespace csharp_oop19_quoridor2D.FabriLuca.Graph
 {
     /// <summary>
     /// Colour enum for INode

@@ -1,16 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
-using csharp_oop19_quoridor2D.Fabri_Luca.Graph;
-using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
+using csharp_oop19_quoridor2D.FabriLuca.Graph;
+using csharp_oop19_quoridor2D.FabriLuca.Positioning;
 
-namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
+namespace csharp_oop19_quoridor2D.FabriLuca.RoundBarriers
 {
     /// <summary>
     /// The round barriers class.
     /// </summary>
     public class RoundBarriers : IRoundBarriers
     {
-        public static readonly int BoardDimension = 9;
+        public static readonly int BOARD_DIMENSION = 9;
         private IList<IBarrier> barriers;
         private IGraph<Coordinate> graph;
 
@@ -20,7 +19,7 @@ namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
             this.graph = graph;
         }
 
-        public RoundBarriers() : this(new List<IBarrier>(), new BarriersGraph(RoundBarriers.BoardDimension)){ }
+        public RoundBarriers() : this(new List<IBarrier>(), new BarriersGraph(RoundBarriers.BOARD_DIMENSION)){ }
 
         public void Add(IBarrier barrier)
         {

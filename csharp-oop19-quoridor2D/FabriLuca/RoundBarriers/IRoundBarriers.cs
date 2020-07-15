@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using csharp_oop19_quoridor2D.Fabri_Luca.Graph;
-using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
+using csharp_oop19_quoridor2D.FabriLuca.Graph;
+using csharp_oop19_quoridor2D.FabriLuca.Positioning;
 
-namespace csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers
+namespace csharp_oop19_quoridor2D.FabriLuca.RoundBarriers
 {
     /// <summary>
     /// This interface models round barriers.

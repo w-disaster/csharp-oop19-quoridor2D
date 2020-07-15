@@ -1,8 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
 using csharp_oop19_quoridor2D.CastellaniThomas;
-using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
-using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
+using csharp_oop19_quoridor2D.FabriLuca.Positioning;
+using csharp_oop19_quoridor2D.FabriLuca.RoundBarriers;
 
 namespace UnitTest.CastellaniThomas
 {

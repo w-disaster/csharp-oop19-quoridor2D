@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
-using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
+using csharp_oop19_quoridor2D.FabriLuca.Positioning;
 
-namespace csharp_oop19_quoridor2D.Fabri_Luca.Graph
+namespace csharp_oop19_quoridor2D.FabriLuca.Graph
 {
     /// <summary>
     /// Graph Interface

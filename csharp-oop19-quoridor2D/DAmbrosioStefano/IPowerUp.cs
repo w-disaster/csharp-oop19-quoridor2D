@@ -1,9 +1,9 @@
-﻿using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using csharp_oop19_quoridor2D.FabriLuca.Positioning;
 
 namespace csharp_oop19_quoridor2D.DAmbrosioStefano
 {

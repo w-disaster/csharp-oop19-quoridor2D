@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using csharp_oop19_quoridor2D.Fabri_Luca.Graph;
-using csharp_oop19_quoridor2D.Fabri_Luca.Positioning;
-using csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers;
-using Barrier = csharp_oop19_quoridor2D.Fabri_Luca.RoundBarriers.Barrier;
+using csharp_oop19_quoridor2D.FabriLuca.Graph;
+using csharp_oop19_quoridor2D.FabriLuca.Positioning;
+using csharp_oop19_quoridor2D.FabriLuca.RoundBarriers;
+using Barrier = csharp_oop19_quoridor2D.FabriLuca.RoundBarriers.Barrier;
 
 namespace csharp_oop19_quoridor2D.CastellaniThomas
 {
@@ -24,7 +24,7 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
             barriers = new RoundBarriers();
             player1Position = new Coordinate(3, 4);
             player2Position = new Coordinate(6, 4);
-            player1FinishLine = RoundBarriers.BoardDimension - 1;
+            player1FinishLine = RoundBarriers.BOARD_DIMENSION - 1;
             player2FinishLine = 0;
             player1Barriers = 10;
         }
@@ -133,12 +133,12 @@ namespace csharp_oop19_quoridor2D.CastellaniThomas
         private bool CheckEdge(Coordinate position)
         {
             //8 = Board dimension
-            if (position.First == RoundBarriers.BoardDimension - 1)
+            if (position.First == RoundBarriers.BOARD_DIMENSION - 1)
             {
                 Console.WriteLine("Can't place on the edge!!");
                 return false;
             }
-            if (position.Second == RoundBarriers.BoardDimension - 1)
+            if (position.Second == RoundBarriers.BOARD_DIMENSION - 1)
             {
                 Console.WriteLine("Can't place on the edge!!");
                 return false;
