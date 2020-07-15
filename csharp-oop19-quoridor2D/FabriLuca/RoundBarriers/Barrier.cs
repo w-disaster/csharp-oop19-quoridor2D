@@ -3,7 +3,7 @@ using csharp_oop19_quoridor2D.FabriLuca.Positioning;
 namespace csharp_oop19_quoridor2D.FabriLuca.RoundBarriers
 {
     /// <summary>
-    /// The BarrierImpl class
+    /// The Barrier class
     /// </summary>
     public class Barrier : IBarrier
     {

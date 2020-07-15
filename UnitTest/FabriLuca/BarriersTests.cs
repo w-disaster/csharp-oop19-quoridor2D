@@ -50,6 +50,7 @@ namespace UnitTest.FabriLuca
         public void BarriersGraphTest()
         {
             IList<IBarrier> barriers = new List<IBarrier>();
+            
             /*I add horizontals barriers from column 0 to BoardDimension - 2 at line BoardDimension/2.
             NB: it doesn't matter if it is a Head one or a Tail one. */
             for(int i = 0; i < RoundBarriers.BOARD_DIMENSION - 1; i++){
@@ -66,9 +67,11 @@ namespace UnitTest.FabriLuca
              a way to the finish line. */
             Assert.True(this.rb.GetBarriersAsGraph()
                 .ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(barriers), player1, finishLine1));
+            
             //I add at the final column the last horizontal barrier.
             barriers.Add(new Barrier(new Coordinate(RoundBarriers.BOARD_DIMENSION - 1, 
                     RoundBarriers.BOARD_DIMENSION / 2), BarrierOrientation.Horizontal, BarrierPiece.Head));
+            
             //Now there shouldn't be a path for player1.
             Assert.False(this.rb.GetBarriersAsGraph()
                 .ContainsPath(BarriersGraph.BarriersAsEdgesToRemove(barriers), player1, finishLine1));
@@ -77,6 +80,7 @@ namespace UnitTest.FabriLuca
             Coordinate player2 = new Coordinate(RoundBarriers.BOARD_DIMENSION / 2 - 1, 
                 RoundBarriers.BOARD_DIMENSION / 2 - 1);
             int finishLine2 = 0;
+            
             /*There's a path for player2 because it starts above the horizontal barriers and its destination is at the
              top of the board.*/
             Assert.True(this.rb.GetBarriersAsGraph()
