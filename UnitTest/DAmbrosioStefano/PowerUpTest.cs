@@ -18,7 +18,7 @@ namespace UnitTest.DAmbrosioStefano
         }
 
         [Test]
-        public void Test()
+        public void TestPowerUp()
         {
             // Check if powerUp type is correct
             Assert.AreEqual(Type.PlusOneBarrier, plusOneBarrierTest.Type);
